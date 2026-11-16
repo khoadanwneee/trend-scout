@@ -76,6 +76,9 @@ def build_messages(since: str | None) -> tuple[list[str], dict]:
 def send_digest(dry_run: bool = False) -> dict:
     since = db.kv_get("last_digest_at")
     msgs, stats = build_messages(since)
+    if not any(stats.values()):
+        # Don't ping the user with an empty message on days with nothing new.
+        return {"sent": False, "reason": "nothing new since last digest", "stats": stats, "messages": msgs}
     have_creds = bool(settings.telegram_bot_token and settings.telegram_chat_id)
     if dry_run or not have_creds:
         reason = "dry-run" if dry_run else "Telegram credentials missing (set TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID)"
