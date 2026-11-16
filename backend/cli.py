@@ -43,8 +43,17 @@ def main(argv: list[str]) -> int:
     db.init_db()
     cmd = argv[1] if len(argv) > 1 else "status"
     if cmd == "scrape":
-        names = argv[2:] or None
-        for r in runner.run_all(names):
+        skip: set[str] = set()
+        names: list[str] = []
+        args = iter(argv[2:])
+        for a in args:
+            if a == "--skip":
+                skip.update(next(args, "").split(","))
+            else:
+                names.append(a)
+        if skip:
+            names = [n for n in (names or SOURCES) if n not in skip]
+        for r in runner.run_all(names or None):
             print(f"{r['source']:<18} {r['status']:<12} items={r['items']:<4} {r['message']}")
     elif cmd == "digest":
         out = digest.send_digest(dry_run="--dry-run" in argv)

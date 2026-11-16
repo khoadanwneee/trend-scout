@@ -37,8 +37,10 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Scrape all sources
-        run: python cli.py scrape
+      - name: Scrape sources
+        # ITviec is skipped here: it blocks GitHub's data-center IPs (HTTP 403).
+        # It is scraped from a home PC by scripts/local-itviec.ps1 instead.
+        run: python cli.py scrape --skip itviec
 
       - name: Send Telegram digest
         # A failed digest must not stop the dashboard data from being published.
