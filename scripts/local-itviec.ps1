@@ -9,7 +9,8 @@ param(
     [string]$Sync = "C:\My Workspace\My Project\trend-scout-sync",
     [string]$Repo = "khoadanwneee/trend-scout"
 )
-$ErrorActionPreference = "Stop"
+# git/python write progress to stderr; under "Stop" PowerShell 5.1 would abort on that.
+$ErrorActionPreference = "Continue"
 $log = Join-Path $Sync "sync.log"
 function Log($m) { "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  $m" | Tee-Object -FilePath $log -Append }
 
