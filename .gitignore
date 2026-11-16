@@ -1,0 +1,11 @@
+.env
+data/*-wal
+data/*-shm
+backend/.venv/
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/.next/
+
+# stray build output
+frontend/My Project/
