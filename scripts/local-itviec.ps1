@@ -20,7 +20,7 @@ $env:PYTHONUTF8 = "1"
 $pushed = $false
 
 for ($attempt = 1; $attempt -le 3 -and -not $pushed; $attempt++) {
-    Log "attempt $attempt: syncing with origin/main"
+    Log "attempt ${attempt}: syncing with origin/main"
     git fetch origin main 2>&1 | Out-Null
     git reset --hard origin/main 2>&1 | Out-Null
 
