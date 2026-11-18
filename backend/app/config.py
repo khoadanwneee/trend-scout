@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     user_agent: str = "TrendScout/0.1 (personal trend tool; polite, rate-limited)"
     request_delay_seconds: float = 3.0
     itviec_pages: int = 3
+    topdev_pages: int = 2
 
     scheduler_enabled: bool = True
     scrape_hour: int = 8  # local time, daily scrape

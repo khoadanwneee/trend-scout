@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from . import github, itviec, restricted
+from . import github, itviec, restricted, topdev
 from .base import Result
 
 # name -> callable returning Result
@@ -11,7 +11,7 @@ SOURCES: dict[str, Callable[[], Result]] = {
     "github-trending": github.fetch_trending,
     "itviec": itviec.fetch,
     "topcv": restricted.fetch_topcv,
-    "topdev": restricted.fetch_topdev,
+    "topdev": topdev.fetch,
     "vietnamworks": restricted.fetch_vietnamworks,
     "linkedin": restricted.fetch_linkedin,
 }

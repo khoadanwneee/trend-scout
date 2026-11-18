@@ -11,7 +11,6 @@ from ..config import settings
 from .base import Blocked, Result, make_client, polite_get, robots_allows
 
 TOPCV_URL = "https://www.topcv.vn/tim-viec-lam-it-phan-mem-c10026?exp=1"
-TOPDEV_URL = "https://topdev.vn/viec-lam-it/fresher"
 LINKEDIN_URL = "https://www.linkedin.com/jobs/search/?keywords=fresher"
 
 
@@ -37,10 +36,6 @@ def _probe(url: str, name: str) -> Result:
 
 def fetch_topcv() -> Result:
     return _probe(TOPCV_URL, "TopCV")
-
-
-def fetch_topdev() -> Result:
-    return _probe(TOPDEV_URL, "TopDev")
 
 
 def fetch_vietnamworks() -> Result:

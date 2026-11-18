@@ -39,7 +39,7 @@ Cấu hình: sao chép `.env.example` thành `.env` (đặt ở thư mục gốc
 - Chạy tay: tab Actions > daily-scrape-and-digest > Run workflow.
 - Cập nhật dữ liệu local: `python cli.py scrape` rồi `python cli.py export`.
 
-## Trạng thái các nguồn (kiểm tra thực tế ngày 2026-11-16)
+## Trạng thái các nguồn (kiểm tra thực tế ngày 2026-11-16, TopDev ngày 2026-11-17)
 
 | Nguồn | Trạng thái | Ghi chú |
 |---|---|---|
@@ -47,7 +47,7 @@ Cấu hình: sao chép `.env.example` thành `.env` (đặt ở thư mục gốc
 | github-trending | ok | Trending tuần (trang công khai) |
 | itviec | ok | Trang `/viec-lam-it/fresher`, robots.txt cho phép |
 | topcv | blocked | Cloudflare trả 403. Dừng, không lách |
-| topdev | unsupported | Truy cập được nhưng chưa có parser |
+| topdev | ok | Trang `/jobs/search` lọc nhóm IT + cấp Thực tập/Mới tốt nghiệp, đọc dữ liệu nhúng sẵn trong trang. TopDev giờ là trang tổng hợp (Saramin) nên rất ít tin IT (3 tin ngày 17/11). Chạy trên GitHub Actions; IP nhà đôi khi bị ngắt kết nối |
 | vietnamworks | unsupported | HTML công khai chỉ có vài tin tài trợ; danh sách thật nằm ở API nội bộ |
 | linkedin | disabled | robots.txt và điều khoản cấm cào |
 
